@@ -1,8 +1,8 @@
 const submitBtn = document.getElementById("submit");
 
 submitBtn.addEventListener("click", () => {
-  const player1 = document.getElementById("player1").value;
-  const player2 = document.getElementById("player2").value;
+  const player1 = document.getElementById("player-1").value;
+  const player2 = document.getElementById("player-2").value;
 
   document.querySelector(".container").innerHTML = `
     <h1>Tic Tac Toe</h1>
