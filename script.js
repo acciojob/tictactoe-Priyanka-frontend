@@ -1,33 +1,14 @@
 const submitBtn = document.getElementById("submit");
-const container = document.querySelector(".container");
-
-let player1 = "";
-let player2 = "";
-let currentPlayer = "";
-let currentSymbol = "X";
-let board = Array(9).fill("");
-
-const winPatterns = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-];
 
 submitBtn.addEventListener("click", () => {
-  player1 = document.getElementById("player-1").value;
-  player2 = document.getElementById("player-2").value;
+  const player1 = document.getElementById("player1").value;
+  const player2 = document.getElementById("player2").value;
 
-  currentPlayer = player1;
-
-  container.innerHTML = `
+  document.querySelector(".container").innerHTML = `
     <h1>Tic Tac Toe</h1>
     <div class="message">${player1}, you're up</div>
-    <div id="board">
+
+    <div class="board">
       <div class="cell" id="1"></div>
       <div class="cell" id="2"></div>
       <div class="cell" id="3"></div>
@@ -40,41 +21,52 @@ submitBtn.addEventListener("click", () => {
     </div>
   `;
 
-  const cells = document.querySelectorAll(".cell");
   const message = document.querySelector(".message");
+  const cells = document.querySelectorAll(".cell");
+
+  let currentPlayer = player1;
+  let symbol = "x";
+
+  const board = Array(9).fill("");
+
+  const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  function checkWinner() {
+    return wins.some(pattern =>
+      pattern.every(index => board[index] === symbol)
+    );
+  }
 
   cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
-      if (cell.textContent !== "") return;
+      if (cell.innerText !== "") return;
 
-      cell.textContent = currentSymbol;
-      board[index] = currentSymbol;
+      cell.innerText = symbol;
+      board[index] = symbol;
 
-      if (checkWinner(currentSymbol)) {
-        message.textContent = `${currentPlayer} congratulations you won!`;
+      if (checkWinner()) {
+        message.innerText = `${currentPlayer} congratulations you won!`;
         return;
       }
 
-      if (board.every(cell => cell !== "")) {
-        message.textContent = "It's a draw!";
-        return;
-      }
-
-      if (currentSymbol === "X") {
-        currentSymbol = "O";
+      if (symbol === "x") {
+        symbol = "o";
         currentPlayer = player2;
       } else {
-        currentSymbol = "X";
+        symbol = "x";
         currentPlayer = player1;
       }
 
-      message.textContent = `${currentPlayer}, you're up`;
+      message.innerText = `${currentPlayer}, you're up`;
     });
   });
 });
-
-function checkWinner(symbol) {
-  return winPatterns.some(pattern =>
-    pattern.every(index => board[index] === symbol)
-  );
-}
