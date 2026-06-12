@@ -78,12 +78,12 @@ function cellClicked(e) {
     }
 
     // Update game board
-    const symbol = currentPlayer === 1 ? 'X' : 'O';
+    const symbol = currentPlayer === 1 ? 'x' : 'o';
     gameBoard[cellIndex] = symbol;
 
     // Update UI
     cell.textContent = symbol;
-    cell.classList.add(symbol.toLowerCase());
+    cell.classList.add(symbol);
 
     // Check for win
     if (checkWin()) {
