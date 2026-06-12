@@ -1,18 +1,29 @@
-/*  your css code here. If applicable */
+.container {
+  text-align: center;
+}
+
+.message {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
 .board {
+  width: 450px;
+  margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 5px;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
+  background-color: pink;
   border: 1px solid black;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 50px;
   cursor: pointer;
 }
