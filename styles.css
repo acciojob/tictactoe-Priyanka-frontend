@@ -1,29 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
-  text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Input Section Styles */
+.input-section {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.input-section h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: #333;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+}
+
+#submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#submit:hover {
+    background-color: #555;
+    transform: scale(1.02);
+}
+
+/* Game Section Styles */
+.game-section {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.game-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .message {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px 0;
+    font-size: 24px;
+    color: #667eea;
+    margin-bottom: 30px;
+    font-weight: bold;
+    min-height: 30px;
 }
 
 .board {
-  width: 450px;
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    border: 3px solid #333;
 }
 
 .cell {
-  background-color: pink;
-  border: 1px solid black;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  cursor: pointer;
+    aspect-ratio: 1;
+    background-color: #ffc0cb;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #ffb3d9;
+}
+
+.cell.x {
+    color: #ff6b6b;
+}
+
+.cell.o {
+    color: #4ecdc4;
+}
+
+.reset-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background-color: #555;
+    transform: scale(1.02);
 }

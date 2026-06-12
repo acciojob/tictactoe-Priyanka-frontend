@@ -7,11 +7,38 @@
 </head>
 
 <body>
-	<div class='container'>
-		<input type="text" id='player-1' placeholder='enter name' />
-		<input type="text" id='player-2' placeholder='enter name' />
-		<button id='submit'>Submit</button>
-	</div>
+	<div class="container">
+        <!-- Player Name Input Section -->
+        <div id="inputSection" class="input-section">
+            <h1>Tic Tac Toe</h1>
+            <div class="form-group">
+                <label for="player-1">Player 1</label>
+                <input type="text" id="player-1" placeholder="enter name">
+            </div>
+            <div class="form-group">
+                <label for="player-2">Player 2</label>
+                <input type="text" id="player-2" placeholder="enter name">
+            </div>
+            <button id="submit">Submit</button>
+        </div>
+
+	<div id="gameSection" class="game-section" style="display: none;">
+            <h1>Tic Tac Toe</h1>
+            <div class="message"></div>
+            <div class="board">
+                <div id="1" class="cell"></div>
+                <div id="2" class="cell"></div>
+                <div id="3" class="cell"></div>
+                <div id="4" class="cell"></div>
+                <div id="5" class="cell"></div>
+                <div id="6" class="cell"></div>
+                <div id="7" class="cell"></div>
+                <div id="8" class="cell"></div>
+                <div id="9" class="cell"></div>
+            </div>
+            <button id="resetBtn" class="reset-btn">Play Again</button>
+        </div>
+    </div>
 
 	<script type="text/javascript" src="./script.js">
     </script>
